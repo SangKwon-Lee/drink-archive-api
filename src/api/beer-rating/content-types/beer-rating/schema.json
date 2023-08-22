@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "beer_ratings",
+  "info": {
+    "singularName": "beer-rating",
+    "pluralName": "beer-ratings",
+    "displayName": "beer-rating",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "rating": {
+      "type": "float"
+    },
+    "beers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::beer.beer",
+      "inversedBy": "beer_ratings"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "beer_ratings"
+    }
+  }
+}

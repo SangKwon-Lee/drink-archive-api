@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "beers",
+  "info": {
+    "singularName": "beer",
+    "pluralName": "beers",
+    "displayName": "beer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "type": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "beer_ratings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::beer-rating.beer-rating",
+      "mappedBy": "beers"
+    },
+    "rating": {
+      "type": "float"
+    },
+    "people": {
+      "type": "integer"
+    }
+  }
+}
