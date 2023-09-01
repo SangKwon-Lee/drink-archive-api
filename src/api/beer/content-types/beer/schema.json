@@ -42,10 +42,12 @@
       "mappedBy": "beers"
     },
     "rating": {
-      "type": "float"
+      "type": "float",
+      "required": true
     },
     "people": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     }
   }
 }

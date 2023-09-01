@@ -166,5 +166,43 @@ module.exports = createCoreController(
         console.log(e);
       }
     },
+    async myRating(ctx) {
+      const { userId, beers } = ctx.params;
+      console.log(beers, userId);
+      try {
+        const myRating = await strapi.db
+          .query("api::beer-rating.beer-rating")
+          .findOne({
+            where: {
+              beers,
+              user: userId,
+            },
+          });
+
+        const myProfile = await strapi.db
+          .query("plugin::users-permissions.user")
+          .findOne({
+            where: {
+              id: userId,
+            },
+            select: ["nickname"],
+            populate: { profile: true },
+          });
+        if (myRating) {
+          const newData = {
+            ...myRating,
+            nickname: myProfile.nickname,
+            profile: myProfile.profile.url,
+          };
+          return newData;
+        } else {
+          return {
+            id: 0,
+          };
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    },
   })
 );

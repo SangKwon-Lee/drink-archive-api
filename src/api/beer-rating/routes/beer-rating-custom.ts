@@ -27,5 +27,14 @@ export default {
         middlewares: [],
       },
     },
+    {
+      method: "GET",
+      path: "/beer-my-rating/:userId/:beers",
+      handler: "beer-rating.myRating",
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
   ],
 };
