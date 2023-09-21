@@ -1,5 +1,5 @@
 /**
- * beer-rating-count service
+ * my-rating service
  */
 
 export default () => ({});

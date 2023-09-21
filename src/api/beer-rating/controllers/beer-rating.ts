@@ -168,7 +168,6 @@ module.exports = createCoreController(
     },
     async myRating(ctx) {
       const { userId, beers } = ctx.params;
-      console.log(beers, userId);
       try {
         const myRating = await strapi.db
           .query("api::beer-rating.beer-rating")
@@ -186,13 +185,11 @@ module.exports = createCoreController(
               id: userId,
             },
             select: ["nickname"],
-            populate: { profile: true },
           });
         if (myRating) {
           const newData = {
             ...myRating,
             nickname: myProfile.nickname,
-            profile: myProfile.profile.url,
           };
           return newData;
         } else {
