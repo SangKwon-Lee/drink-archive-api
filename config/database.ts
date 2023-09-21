@@ -6,12 +6,11 @@ export default ({ env }) => {
   const connections = {
     mysql: {
       connection: {
-        connectionString: env("DATABASE_URL"),
-        host: env("DATABASE_HOST", "svc.sel4.cloudtype.app"),
-        port: env.int("DATABASE_PORT", 31355),
-        database: env("DATABASE_NAME", "drink_archive"),
-        user: env("DATABASE_USERNAME", "root"),
-        password: env("DATABASE_PASSWORD", "0326"),
+        host: env("DATABASE_HOST", "localhost"),
+        port: env.int("DATABASE_PORT", 3306),
+        database: env("DATABASE_NAME", "strapi"),
+        user: env("DATABASE_USERNAME", "strapi"),
+        password: env("DATABASE_PASSWORD", "strapi"),
         ssl: env.bool("DATABASE_SSL", false) && {
           key: env("DATABASE_SSL_KEY", undefined),
           cert: env("DATABASE_SSL_CERT", undefined),
@@ -56,8 +55,8 @@ export default ({ env }) => {
     postgres: {
       connection: {
         connectionString: env("DATABASE_URL"),
-        host: env("DATABASE_HOST", "svc.sel4.cloudtype.app"),
-        port: env.int("DATABASE_PORT", 31355),
+        host: env("DATABASE_HOST", "127.0.0.1"),
+        port: env.int("DATABASE_PORT", 3306),
         database: env("DATABASE_NAME", "drink-archive"),
         user: env("DATABASE_USERNAME", "root"),
         password: env("DATABASE_PASSWORD", "0326"),
