@@ -48,6 +48,9 @@
     "people": {
       "type": "integer",
       "required": true
+    },
+    "abv": {
+      "type": "float"
     }
   }
 }
